@@ -1,0 +1,6 @@
+venv/
+results/
+.pyc
+.txt
+.vtu
+.pvd
