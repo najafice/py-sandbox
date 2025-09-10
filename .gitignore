@@ -1,2 +1,6 @@
+Database/*.db
+.pvd
+.vtu
 .pyc
 .txt
+.db
