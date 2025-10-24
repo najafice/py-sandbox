@@ -4,3 +4,5 @@ Database/*.db
 .pyc
 .txt
 .db
+.csv
+.pdf
