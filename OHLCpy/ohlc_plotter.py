@@ -7,7 +7,7 @@ import matplotlib.ticker as mticker
 # -----------------------------
 # Step 1: Load Excel
 # -----------------------------
-excel_file = "output.xlsx"
+excel_file = "NDXUSDDATA.xlsx"
 df = pd.read_excel(excel_file)
 
 # Ensure DateTime is datetime type
@@ -44,7 +44,7 @@ pdf_filename = "nasdaq_first_hour_charts.pdf"
 pdf = PdfPages(pdf_filename)
 
 for date, day_data in df_last.groupby(df_last.index.date):
-    df_first_hour = day_data.between_time('09:30', '10:30')
+    df_first_hour = day_data.between_time('10:30', '11:30')
     if df_first_hour.empty:
         continue
 

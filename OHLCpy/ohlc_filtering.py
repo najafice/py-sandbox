@@ -2,8 +2,8 @@ import pandas as pd
 import pytz
 
 # Input and output files
-csv_file = "nasdaq_data.csv"
-xlsx_file = "output.xlsx"
+csv_file = "DAT_ASCII_NSXUSD_M1_202510.csv"
+xlsx_file = "NDXUSDDATA.xlsx"
 
 # Read CSV with semicolon separator, skip the last column
 df = pd.read_csv(csv_file, sep=';', header=None, usecols=[0, 1, 2, 3, 4])
