@@ -2,7 +2,7 @@ import pandas as pd
 import pytz
 
 # Input and output files
-csv_file = "DAT_ASCII_NSXUSD_M1_202510.csv"
+csv_file = "DAT_ASCII_NSXUSD_M1_2025.csv"
 xlsx_file = "NDXUSDDATA.xlsx"
 
 # Read CSV with semicolon separator, skip the last column

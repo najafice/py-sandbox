@@ -7,14 +7,23 @@ This Python project reads NASDAQ minute-level OHLC data from an Excel file and g
 ## Features
 
 - Reads OHLC data from an Excel file (`DateTime, Open, High, Low, Close`).  
-- Filters the **first hour of the market (09:30–10:30 EST)**.  
+- Filters the **first hour of the market (10:30–11:30 local time in the dataset)**.  
 - Plots **1-minute candlestick charts**.  
 - White background with **white bullish bars** and **black bearish bars**.  
 - Highlights **first candle high and low** with red horizontal lines.  
+- Detects **breakouts** above or below the first candle:  
+  - Marks **entry price** with a red dot.  
+  - Calculates **take-profit (TP)** level ±0.1% of breakout close.  
+  - Computes **reward-to-risk ratio (RRR)** for each trade.  
+  - Displays **TP label** on chart (`TP: {price} – RRR: {value}`).  
+- Labels first candle levels on the right side of chart:  
+  - `High: {price}`  
+  - `Low: {price}`  
+- Adds **Entry price** in the bottom-right corner.  
 - Supports multiple days: user can choose how many **last trading days** to plot.  
 - Saves all charts into a **single PDF**.  
 - Price axis formatted with **thousand separators** for readability.  
-- Compact layout optimized for A5 landscape printing.  
+- Compact layout optimized for A5 landscape printing. 
 
 ---
 
@@ -56,12 +65,17 @@ Enter the number of last trading days to plot: 5
 
 ## Output
 
-- Each page of the PDF represents **one trading day**.  
-- **Red horizontal lines** indicate the **first candle’s high and low**.  
-- **Price values** on the y-axis have **thousand separators** for readability.
+- Each page of the PDF represents one trading day.
+- Red horizontal lines indicate the first candle’s high and low.
+- Blue dashed lines indicate TP levels if the breakout reached the target.
+- Red dots mark breakout candle closes.
+- Right-side labels show high/low of the first candle and TP with RRR.
+- Entry price displayed in the bottom-right corner of each chart.
+- Price values on the y-axis have thousand separators for readability.
 
 ## Notes
 
-- The script assumes the data is in **Eastern Standard Time (EST)** without daylight saving adjustment.
-- Only the **first hour of the market** is plotted.
-- No breakout or TP lines are included.
+- The script assumes the data is in Eastern Standard Time (EST) without daylight saving adjustment.
+- Only the first hour of the market is plotted.
+- TP lines are plotted only if the price actually reached the target within the first hour.
+- Reward-to-risk ratio for short positions is correctly calculated (inverted).

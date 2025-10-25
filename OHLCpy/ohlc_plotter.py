@@ -138,7 +138,7 @@ for date, day_data in df_last.groupby(df_last.index.date):
     if breakout_close is not None and breakout_index is not None:
         ax.plot(breakout_index, breakout_close, 'o', color='red', markersize=5, zorder=10)
         ax.text(0.98, 0.02, f"Entry: {breakout_close:,.0f}",
-                transform=ax.transAxes, fontsize=8, color='black',
+                transform=ax.transAxes, fontsize=7, color='black',
                 ha='right', va='bottom', backgroundcolor='white')
 
     pdf.savefig(fig, bbox_inches='tight')
